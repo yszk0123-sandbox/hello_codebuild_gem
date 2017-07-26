@@ -1,0 +1,26 @@
+version: 0.2
+
+env:
+  variables:
+    FOO: bar
+
+phases:
+  install:
+    commands:
+      - echo "---------- install"
+  pre_build:
+    commands:
+      - echo "---------- pre_build"
+  build:
+    commands:
+      - pwd
+      - echo "---------- build"
+      - echo "Hello, $FOO"
+  post_build:
+    commands:
+      - echo "---------- post_build"
+
+artifacts:
+  files:
+    - README.rdoc
+    - Gemfile
