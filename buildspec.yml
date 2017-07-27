@@ -8,10 +8,14 @@ phases:
   install:
     commands:
       - echo "---------- install"
+      - pwd
+      - "which yarn || curl -o- -L https://yarnpkg.com/install.sh | bash"
+      - pwd
+      - which node
+      - which yarn
+      - node --version
+      - yarn --version
       - cd frontend && yarn
-  pre_build:
-    commands:
-      - echo "---------- pre_build"
   build:
     commands:
       - pwd
