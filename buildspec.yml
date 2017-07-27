@@ -8,6 +8,7 @@ phases:
   install:
     commands:
       - echo "---------- install"
+      - cd frontend && yarn
   pre_build:
     commands:
       - echo "---------- pre_build"
@@ -16,6 +17,7 @@ phases:
       - pwd
       - echo "---------- build"
       - echo "Hello, $FOO"
+      - cd frontend && yarn build
   post_build:
     commands:
       - echo "---------- post_build"
@@ -24,3 +26,4 @@ artifacts:
   files:
     - README.rdoc
     - Gemfile
+    - frontend/dist/build.js
