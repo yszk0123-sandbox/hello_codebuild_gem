@@ -19,19 +19,23 @@ phases:
       - which yarn
       - node --version
       - yarn --version
-      - cd frontend && yarn
+      - cd frontend && yarn && cd ..
   build:
     commands:
+      - echo "---------- build begin"
       - pwd
-      - echo "---------- build"
       - echo "Hello, $FOO"
-      - cd frontend && yarn build
+      - cd frontend && yarn build && cd ..
+      - pwd
+      - echo "---------- build end"
   post_build:
     commands:
       - echo "---------- post_build"
+      - pwd
 
 artifacts:
   files:
     - README.rdoc
     - Gemfile
-    - frontend/dist/build.js
+    - frontend/dist/*
+  discard-paths: yes
